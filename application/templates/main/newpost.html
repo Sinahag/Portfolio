@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+
+        <form name="post" action="/post" method="post" enctype="multipart/form-data" novalidate>
+            <fieldset class="form-group">
+                <legend>{{title}}</legend>
+                {{ form.hidden_tag() }}
+
+                <p>
+                    {{form.title.label}}<br>
+                    {{form.title}}
+                    {% for error in form.title.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{form.description.label}}<br>
+                    {{form.description}}
+                    {% for error in form.description.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{form.image.label}}<br>
+                    {{form.image}}
+                    {% for error in form.image.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{form.keyword.label}}<br>
+                    {{form.keyword(size=15)}}
+                    {% for error in form.keyword.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{form.submit}}
+                </p>
+            </fieldset>
+        </form>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
