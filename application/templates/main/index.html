@@ -1,19 +1,31 @@
-{% extends "layout.html" %}
+<head>
+    <title>Sina Haghighi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}" />
+</head>
 
-{% block content %}
+
+<body>
+    <div class="container">
+<br><br>
 <h1>
     Sina Haghighi
 </h1>
 
+<h2>
+    Engineering Student and Tech Enthusiast
+</h2>
+
 <p class="content">
     A third year Computer Engineering student at Simon Fraser University.<br>
-    Check out my <a class="skip_link" href="{{url_for('main.projects')}}">projects</a>!
+    Check out my <a class="link" href="{{url_for('main.projects')}}">projects</a>!
 </p>
 
 
-<a class="skip_link" href="mailto:sina@gmail.com;">Email</a>
-<a class="skip-link" rel="noopener" href="https://twitter.com/sinahaghighii" target="_blank">Twitter</a>
-<a class="skip-link" rel="noopener" href="https://github.com/sinahag" target="_blank">GitHub</a>
-<a class="skip-link" rel="noopener" href="https://linkedin.com/in/sina-" target="_blank">LinkedIn</a>
-{% endblock %}
-
+<a class="skip-link" href="mailto:sina@gmail.com;">Email </a>
+<a class="skip-link" href="https://twitter.com/sinahaghighii">Twitter </a>
+<a class="skip-link" href="https://github.com/sinahag">GitHub </a>
+<a class="skip-link" href="https://linkedin.com/in/sina-">LinkedIn</a>
+</div>
+</body>
