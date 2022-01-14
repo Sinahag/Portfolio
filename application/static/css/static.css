@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    overflow: hidden;
   }
   p.content{
     color: #f5f5f5;
