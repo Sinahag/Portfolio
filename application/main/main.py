@@ -13,18 +13,18 @@ main = Blueprint('main',__name__)
 def index():
     return render_template("main/index.html", index=True)
 
-
-@main.route("/profile")
-@login_required
-def profile():
-    return render_template("main/profile.html",name=current_user.name)
-
 # TODO: build blog page
 @main.route("/projects")
 # @login_required
 def projects():
     # return render_template("main/blog.html", show_per_page=num, Post=Post)
     return render_template("main/blog.html")
+
+@main.route("/profile")
+@login_required
+def profile():
+    return render_template("main/profile.html",name=current_user.name)
+
 
 #TODO: Fix retrieval of images from database
 @main.route("/project/<int:id>")
