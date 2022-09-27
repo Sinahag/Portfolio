@@ -21,7 +21,7 @@ def profile():
 
 # TODO: build blog page
 @main.route("/projects")
-@login_required
+# @login_required
 def projects(num=3):
     return render_template("main/blog.html", show_per_page=num, Post=Post)
 
