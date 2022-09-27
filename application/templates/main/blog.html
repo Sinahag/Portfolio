@@ -3,18 +3,19 @@
 
     Once it is clicked it will redirect to a full page view of the actual project (another template)-->
 
-    <!-- If the user is logged in, then they have ability to add/edit blog posts (maybe add a button)-->
+<!-- If the user is logged in, then they have ability to add/edit blog posts (maybe add a button)-->
 {% extends "layout.html" %}
 
 {% block content %}
 
 <p>Page Under Development, <br>Check back soon!
-    
+    <!-- uncomment when project page is ready -->
+    <!--
 {% for i in Post.objects() %}
 <br>
 <a href="{{url_for('main.project_viewer',id=i.id)}}">Post {{i.id}}</a>
 {% endfor %}
 <br><a href="{{url_for('main.post')}}">New Post</a>
 </p>
-    
-{% endblock %}
+-->
+    {% endblock %}
