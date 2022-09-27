@@ -22,9 +22,9 @@ def profile():
 # TODO: build blog page
 @main.route("/projects")
 # @login_required
-def projects(num=3):
+def projects():
     # return render_template("main/blog.html", show_per_page=num, Post=Post)
-    return render_template("main/blog.html", show_per_page=num)
+    return render_template("main/blog.html")
 
 #TODO: Fix retrieval of images from database
 @main.route("/project/<int:id>")
