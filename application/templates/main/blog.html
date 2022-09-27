@@ -13,4 +13,12 @@
         <p>Please check back later.</p>
     </div>
 </div>
+<!-- uncomment when project page is ready -->
+<!--
+{% for i in Post.objects() %}
+<br>
+<a href="{{url_for('main.project_viewer',id=i.id)}}">Post {{i.id}}</a>
+{% endfor %}
+<br><a href="{{url_for('main.post')}}">New Post</a>
+-->
 {% endblock %}
