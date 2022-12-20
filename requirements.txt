@@ -14,7 +14,7 @@ Jinja2==3.0.3
 MarkupSafe==2.0.1
 mongoengine==0.23.1
 pickleshare==0.7.5
-# Pillow==9.0.1
+# Pillow==9.0.1 # disabled for the dockerfile (installed on dockerfile)
 pymongo==3.12.3
 python-dotenv==0.19.2
 Werkzeug==2.0.2
