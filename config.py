@@ -6,6 +6,6 @@ class Config(object):
     CSRF_ENABLED     = True
     CSRF_SESSION_KEY = "secret"
     MONGODB_SETTINGS = { 'db' : 'portfolio' , 
-    'host' : 'mongodb+srv://portfolio.vrd4w.mongodb.net/myFirstDatabase?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority' } 
+    'host' : 'mongodb+srv://portfolio.vrd4w.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority' } 
 
     
