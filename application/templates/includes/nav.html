@@ -1,16 +1,17 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-black bg-black">
-    <a class="navbar-brand" href="{{url_for('main.index')}}">Home</a>
+        <a class="navbar-brand" href="{{url_for('main.index')}}"><img class="home-btn" src="static/arc_home.png"
+                alt="Home"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-            {% if current_user.is_authenticated %}
-            <a class="nav-item nav-link {%if index %} activate {% endif %}" href = "{{url_for('main.projects')}}">Projects</a>
-            <a class="nav-item nav-link {%if index %} activate {% endif %}" href = "{{url_for('auth.logout')}}">Logout</a>
-            {% else %}
-            <a class="nav-item nav-link {%if index %} activate {% endif %}" href = "{{url_for('auth.login')}}">Login</a>
-            <a class="nav-item nav-link {%if index %} activate {% endif %}" href = "{{url_for('auth.register')}}">Register</a>
-            {% endif %}
+        {% if current_user.is_authenticated %}
+        <a class="nav-item nav-link {%if index %} activate {% endif %}" href="{{url_for('main.projects')}}">Projects</a>
+        <a class="nav-item nav-link {%if index %} activate {% endif %}" href="{{url_for('auth.logout')}}">Logout</a>
+        {% else%}
+        <a class="nav-item nav-link {%if index %} activate {% endif %}" href="{{url_for('auth.login')}}">Login</a>
+        <a class="nav-item nav-link {%if index %} activate {% endif %}" href="{{url_for('auth.register')}}">Register</a>
+        {% endif %}
 
     </nav>
 </header>
