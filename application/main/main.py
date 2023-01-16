@@ -1,6 +1,6 @@
 import os
 from application import db
-from flask import render_template, redirect, request, url_for, flash, Blueprint, Response
+from flask import render_template, redirect, request, send_from_directory, url_for, flash, Blueprint, Response, make_response
 from application.main.models import Post
 from flask_login import current_user, login_required
 from application.main.forms import PostForm
@@ -19,6 +19,10 @@ def index():
 def projects():
     # return render_template("main/blog.html", show_per_page=num, Post=Post)
     return render_template("main/blog.html")
+
+@main.route("/resume")
+def resume():
+    return send_from_directory('static','files/Resume.pdf')
 
 @main.route("/profile")
 @login_required
