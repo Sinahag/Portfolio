@@ -1,3 +1,2 @@
 # Portfolio
-## Sina's Page
-### Learn more about my interests and what I've been up to by following sinahaghighi.ca
+Learn more about my interests and what I've been up to by following [sinahaghighi.ca]
