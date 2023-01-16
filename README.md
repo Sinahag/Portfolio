@@ -1,6 +1,3 @@
 # Portfolio
-Sina's Page
-
-# Instructions
-To run code, in terminal:
-python -m flask run
+## Sina's Page
+### Learn more about my interests and what I've been up to by following sinahaghighi.ca
