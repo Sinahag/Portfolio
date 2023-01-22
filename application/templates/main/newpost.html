@@ -32,6 +32,13 @@
                     {% endfor %}
                 </p>
                 <p>
+                    {{form.video_url.label}}<br>
+                    {{form.video_url}}
+                    {% for error in form.video_url.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
                     {{form.keyword.label}}<br>
                     {{form.keyword(size=15)}}
                     {% for error in form.keyword.errors %}

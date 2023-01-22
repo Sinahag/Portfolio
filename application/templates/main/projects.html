@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="content-section">
+        {% for project in projects %}
+        <div>
+            <a class="skip-link" rel="noopener" href="/project/{{project.id}}">{{project.title}}:
+                {{project.keyword}}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

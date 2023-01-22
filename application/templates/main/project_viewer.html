@@ -1,2 +1,26 @@
-<!-- TODO: Fix retrieving images from database -->
-<img src="data:;base64,{{image.image.thumbnail.read()}}" >
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="content-section">
+        <h2>{{project.title}}</h2>
+        {% if image %}
+        <img src="data:image/png;base64, {{image}}" alt="projectImage" />
+        {% endif %}
+        <div>
+            {% if "https://www.youtube.com/embed/" in project.video_url %}
+            <iframe width="560" height="315" src="{{project.video_url}}" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            {% else %}
+            <a class="skip-link" rel="noopener" href="{{project.video_url}}" target="_blank">{{project.video_url}}</a>
+            <b>{{project.get_video}}</b>
+            {% endif %}
+        </div>
+
+        <p>{{project.description}}</p>
+    </div>
+</div>
+
+{% endblock %}
