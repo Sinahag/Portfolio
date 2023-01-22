@@ -1,6 +1,6 @@
 {
     "flask": {
-        "image": ":sinah.sinah.7",
+        "image": ":sinah.sinah.8",
         "ports": {
             "8080": "HTTP"
         }

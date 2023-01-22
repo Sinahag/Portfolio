@@ -14,18 +14,15 @@ main = Blueprint('main',__name__)
 def index():
     return render_template("main/index.html", index=True)
 
-# TODO: build blog page
+# TODO: build blog page which could be for others to share their projects
 @main.route("/blog")
-@login_required
+# @login_required
 def blog():
     return render_template("main/blog.html")
 
 @main.route("/projects")
 def projects():
-    projects = Post.objects().all()
-    if not projects:
-        return render_template("errors/404.html")
-    
+    projects = Post.objects().all()    
     return render_template("main/projects.html", projects=projects)
 
 @main.route("/resume")
@@ -35,11 +32,10 @@ def resume():
 @main.route("/profile")
 @login_required
 def profile():
-    return render_template("main/profile.html",name=current_user.name)
+    return render_template("main/profile.html",user=current_user)
 
 @main.route("/project/<int:id>")
 @main.route("/project/<string:name>")
-@login_required
 def project_viewer(id=None,name=None):
     if not name:
         project = Post.objects(id=id).first()

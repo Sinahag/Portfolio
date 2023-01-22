@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="content-section">
+        <h2>{{current_user.name}}</h2>
+        <p>{{current_user.email}}</p>
+        <p>Date Joined: {{current_user.date_created}}</p>
+    </div>
+</div>
+
+{% endblock %}

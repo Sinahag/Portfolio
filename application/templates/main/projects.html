@@ -3,12 +3,20 @@
 {% block content %}
 <div class="container">
     <div class="content-section">
+        {% if projects %}
+        <h2> Projects</h2>
         {% for project in projects %}
         <div>
-            <a class="skip-link" rel="noopener" href="/project/{{project.id}}">{{project.title}}:
-                {{project.keyword}}</a>
+            <p>
+                <a class="skip-link" rel="noopener" href="/project/{{project.id}}">{{project.title}}:
+                    {{project.keyword}}</a>
+            </p>
         </div>
         {% endfor %}
+        {% else %}
+        <h2> Projects are in the works!</h2>
+        <p> Keep an eye out</p>
+        {% endif %}
     </div>
 </div>
 
