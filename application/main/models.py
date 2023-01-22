@@ -22,5 +22,5 @@ class Post(Blog):
     title = db.StringField(max_length=200, nullable=False)
     description = db.StringField(max_length=1000)
     video_url = db.URLField(max_length=100)
-    image = db.ImageField(size=(300, 300, True), thumbnail_size=(30, 30, True))
+    image = db.ImageField(size=(300, 300, True), thumbnail_size=(60, 60, True))
     keyword = db.StringField(max_length=50)

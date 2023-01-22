@@ -22,8 +22,13 @@ def blog():
 
 @main.route("/projects")
 def projects():
-    projects = Post.objects().all()    
-    return render_template("main/projects.html", projects=projects)
+    projects = Post.objects().all()
+    images = list()
+    for project in projects:
+        base64_data = codecs.encode(project.image.thumbnail.read(), 'base64')
+        image = base64_data.decode('utf-8')
+        images.append(image)
+    return render_template("main/projects.html", projects=projects,images = images)
 
 @main.route("/resume")
 def resume():

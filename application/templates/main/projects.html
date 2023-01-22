@@ -8,7 +8,9 @@
         {% for project in projects %}
         <div>
             <p>
-                <a class="skip-link" rel="noopener" href="/project/{{project.id}}">{{project.title}}:
+
+                <a class="skip-link" rel="noopener" href="/project/{{project.id}}"><img
+                        src="data:image/png;base64, {{images[project.id-1]}}" alt="projectImage" /> {{project.title}}:
                     {{project.keyword}}</a>
             </p>
         </div>
