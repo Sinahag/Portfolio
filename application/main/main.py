@@ -1,6 +1,6 @@
 import os
 from application import db
-from flask import render_template, redirect, request, send_file, send_from_directory, url_for, flash, Blueprint, Response, make_response
+from flask import render_template, redirect, request, send_file, send_from_directory, session, url_for, flash, Blueprint, Response, make_response
 from application.main.models import Post
 from flask_login import current_user, login_required
 from application.main.forms import PostForm
@@ -70,6 +70,7 @@ def post_post():
     video_url = request.form.get('video_url')
     keyword = request.form.get('keyword')
     title_exists = Post.objects(title=title).first()
+    username =  current_user.name
 
     if title_exists:
         flash('A Post Exists with this Title', "danger")
@@ -83,7 +84,8 @@ def post_post():
                     image = path,
                     video_url=video_url,
                     description = description, 
-                    keyword = keyword)
+                    keyword = keyword,
+                    user = username)
     new_post.save()
     return redirect(url_for('main.projects'))
 

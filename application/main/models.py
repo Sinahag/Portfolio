@@ -24,3 +24,4 @@ class Post(Blog):
     video_url = db.URLField(max_length=100)
     image = db.ImageField(size=(300, 300, True), thumbnail_size=(60, 60, True))
     keyword = db.StringField(max_length=50)
+    user = db.StringField(max_length=100)
