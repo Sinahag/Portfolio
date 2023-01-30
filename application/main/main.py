@@ -70,7 +70,6 @@ def post_post():
     video_url = request.form.get('video_url')
     github_url = request.form.get('github_url')
     keyword = request.form.get('keyword')
-    title_exists = Post.objects(title=title).first()
     username =  current_user.name
     num_posts_after_this = Post.objects().count()
 
@@ -80,12 +79,12 @@ def post_post():
     for i in Post.objects():
         total += i.id
 
-    if title_exists:
-        flash('A Post Exists with this Title', "danger")
-        return redirect(url_for("main.projects"))
     path = os.path.join(os.path.abspath(image.filename))
-
-    image.save(path)
+    if len(str(image.filename))>0:
+        image.save(path)
+    else: 
+        flash("Please upload image","error")
+        return redirect(url_for('main.projects'))
 
     new_post = Post(id=(pid-total), 
                     title = title, 
@@ -96,7 +95,10 @@ def post_post():
                     user = username,
                     github_url = github_url)
 
-    new_post.validate()
+    try:
+        new_post.validate()
+    except:
+        return redirect(url_for('main.projects'))
     new_post.save()
     return redirect(url_for('main.projects'))
 
