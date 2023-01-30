@@ -23,7 +23,7 @@ def login_post():
     user = User.objects(email=email).first()
 
     if not user or not user.get_password(password):
-        flash('Invalid login details, please try again.', "danger")
+        flash('Invalid login details, please try again.', "error")
         return redirect(url_for('auth.login'))
     else:
         flash(f"{user.name}, you are successfully logged in!", "success")
@@ -47,7 +47,7 @@ def register_post():
     user = User.objects(email=email).first()
 
     if user:
-        flash('Email address already exists', "danger")
+        flash('Email address already exists', "error")
         return redirect(url_for("auth.login"))
 
     if password != confirm_password:
@@ -63,5 +63,5 @@ def register_post():
 @login_required
 def logout():
     logout_user()
-    flash('You have been logged out, successfully', "successful")
+    flash('You have been logged out, successfully', "success")
     return redirect(url_for('main.index'))
