@@ -28,7 +28,7 @@ def projects():
         base64_data = codecs.encode(project.image.thumbnail.read(), 'base64')
         image = base64_data.decode('utf-8')
         images.append(image)
-    return render_template("main/projects.html", projects=projects,images = images)
+    return render_template("main/projects.html", projects=projects, images = images, numposts=len(projects))
 
 @main.route("/resume")
 def resume():
@@ -68,9 +68,17 @@ def post_post():
     description = request.form.get('description')
     image = request.files.get('image')
     video_url = request.form.get('video_url')
+    github_url = request.form.get('github_url')
     keyword = request.form.get('keyword')
     title_exists = Post.objects(title=title).first()
     username =  current_user.name
+    num_posts_after_this = Post.objects().count()
+
+    pid = (num_posts_after_this+1)*(num_posts_after_this+2)/2
+
+    total = 0
+    for i in Post.objects():
+        total += i.id
 
     if title_exists:
         flash('A Post Exists with this Title', "danger")
@@ -79,13 +87,16 @@ def post_post():
 
     image.save(path)
 
-    new_post = Post(id=Post.objects.count() + 1, 
+    new_post = Post(id=(pid-total), 
                     title = title, 
                     image = path,
                     video_url=video_url,
                     description = description, 
                     keyword = keyword,
-                    user = username)
+                    user = username,
+                    github_url = github_url)
+
+    new_post.validate()
     new_post.save()
     return redirect(url_for('main.projects'))
 

@@ -39,6 +39,13 @@
                     {% endfor %}
                 </p>
                 <p>
+                    {{form.github_url.label}}<br>
+                    {{form.github_url}}
+                    {% for error in form.github_url.errors %}
+                    <span class="error-message">{{error}}</span>
+                    {% endfor %}
+                </p>
+                <p>
                     {{form.keyword.label}}<br>
                     {{form.keyword(size=15)}}
                     {% for error in form.keyword.errors %}

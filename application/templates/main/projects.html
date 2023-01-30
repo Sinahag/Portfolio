@@ -5,13 +5,13 @@
     <div class="content-section">
         {% if projects %}
         <h2> Projects</h2>
-        {% for project in projects %}
+        {% for i in range(numposts) %}
         <div>
             <p>
 
-                <a class="skip-link" rel="noopener" href="/project/{{project.id}}"><img
-                        src="data:image/png;base64, {{images[project.id-1]}}" alt="projectImage" /> {{project.title}}:
-                    {{project.keyword}}</a>
+                <a class="skip-link" rel="noopener" href="/project/{{projects[i].id}}"><img
+                        src="data:image/png;base64, {{images[i]}}" alt="projectImage" /> {{projects[i].title}}:
+                    {{projects[i].keyword}}</a>
             </p>
         </div>
         {% endfor %}
