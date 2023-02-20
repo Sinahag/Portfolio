@@ -14,15 +14,16 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             {% else %}
-            <a class="skip-link" rel="noopener" href="{{project.video_url}}"
+            <a class="link-file" rel="noopener" href="{{project.video_url}}"
                 target="_blank"><b>{{project.video_url}}</b></a>
             {% endif %}
         </div>
-        {% if project.github_url %}
-        <p>GitHub: </p>
-        <a class="skip-link" rel="noopener" href="{{project.github_url}}" target="_blank">{{ project.github_url.split('/')[-1] }}</a>
-        {% endif %}
         <p>{{project.description}}</p>
+        {% if project.github_url %}
+        <!-- <a class="skip-link" rel="noopener" href="{{project.github_url}}" target="_blank">{{ project.github_url.split('/')[-1] }}</a> -->
+        <a class="link" rel="noopener" href="{{project.github_url}}" target="_blank"><img src="/static/files/github.png"
+                height="50" width="50"></a>
+        {% endif %}
         <p>Posted By: {{project.user}}</p>
     </div>
 </div>

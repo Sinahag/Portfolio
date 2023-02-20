@@ -13,7 +13,7 @@
 
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-        <ul>
+        <ul class="no-bullets">
             {% for category, message in messages %}
             <div id="hideme">
                 <li class="{{ category }}-message">

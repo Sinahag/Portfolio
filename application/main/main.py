@@ -25,7 +25,7 @@ def projects():
     projects = Post.objects().all()
     images = list()
     for project in projects:
-        base64_data = codecs.encode(project.image.thumbnail.read(), 'base64')
+        base64_data = codecs.encode(project.image.read(), 'base64') # could do project.image.thumbnail.read() for thumbnail size
         image = base64_data.decode('utf-8')
         images.append(image)
     return render_template("main/projects.html", projects=projects, images = images, numposts=len(projects))

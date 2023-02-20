@@ -5,16 +5,26 @@
     <div class="content-section">
         {% if projects %}
         <h2> Projects</h2>
-        {% for i in range(numposts) %}
-        <div>
-            <p>
+        <div class="grid-container">
+            {% for i in range(numposts) %}
+            <div class="grid-item">
+                <div class="card">
 
-                <a class="skip-link" rel="noopener" href="/project/{{projects[i].id}}"><img
-                        src="data:image/png;base64, {{images[i]}}" alt="projectImage" /> {{projects[i].title}}:
-                    {{projects[i].keyword}}</a>
-            </p>
+                    <!-- <a class="link" rel="noopener" href="/project/{{projects[i].id}}"><img
+                            src="data:image/png;base64, {{images[i]}}" alt="projectImage" /> {{projects[i].title}}:
+                        {{projects[i].keyword}}</a> -->
+                    <a class="link" rel="noopener" href="/project/{{projects[i].id}}"><img
+                            class="card-img" src="data:image/png;base64, {{images[i]}}" alt="projectImage"/>
+                    </a>
+                    <div class="card-description">
+                        <a class="link" rel="noopener" href="/project/{{projects[i].id}}">
+                            {{projects[i].title}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
         {% else %}
         <h2> Projects are in the works!</h2>
         <p> Keep an eye out</p>
