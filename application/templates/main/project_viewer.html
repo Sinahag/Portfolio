@@ -9,18 +9,20 @@
         <img src="data:image/png;base64, {{image}}" alt="projectImage" />
         {% endif %}
         <div>
-            {% if "https://www.youtube.com/embed/" in project.video_url %}
-            <iframe width="560" height="315" src="{{project.video_url}}" title="YouTube video player" frameborder="0"
+            {% if "https://www.youtube.com/embed/" in project.media_url %}
+            <iframe width="560" height="315" src="{{project.media_url}}" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
+            {% elif "pub?embedded=true" in project.media_url and "https://docs.google.com/document/d/" in
+            project.media_url %}
+            <iframe width="800" height="600" src="{{project.media_url}}" title="Document Viewer"> </iframe>
             {% else %}
-            <a class="link-file" rel="noopener" href="{{project.video_url}}"
-                target="_blank"><b>{{project.video_url}}</b></a>
+            <a class="link-file" rel="noopener" href="{{project.media_url}}"
+                target="_blank"><b>{{project.media_url}}</b></a>
             {% endif %}
         </div>
         <p>{{project.description}}</p>
         {% if project.github_url %}
-        <!-- <a class="skip-link" rel="noopener" href="{{project.github_url}}" target="_blank">{{ project.github_url.split('/')[-1] }}</a> -->
         <a class="link" rel="noopener" href="{{project.github_url}}" target="_blank"><img src="/static/files/github.png"
                 height="50" width="50"></a>
         {% endif %}

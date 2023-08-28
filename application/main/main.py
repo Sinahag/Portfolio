@@ -67,7 +67,7 @@ def post_post():
     title = request.form.get('title')
     description = request.form.get('description')
     image = request.files.get('image')
-    video_url = request.form.get('video_url')
+    media_url = request.form.get('media_url')
     github_url = request.form.get('github_url')
     keyword = request.form.get('keyword')
     username =  current_user.name
@@ -89,7 +89,7 @@ def post_post():
     new_post = Post(id=(pid-total), 
                     title = title, 
                     image = path,
-                    video_url=video_url,
+                    media_url=media_url,
                     description = description, 
                     keyword = keyword,
                     user = username,

@@ -25,10 +25,14 @@ class Post(Blog):
             flash("invalid github url", "warning")
             raise ValueError()
 
-    def check_valid_video_url(url):
-        x = re.search("^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)*?", url)
-        if not x and len(url)>0:
-            flash("invalid youtube url", "warning")
+    def check_valid_media_url(url):
+        youtube_check = re.search("^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)*?", url)
+        doc_check = re.search("(docs.google.com|(http|https))(://[A-Za-z]+-my.sharepoint.com)?", url)
+        if (not doc_check and len(url)>0) and (not youtube_check and len(url)>0):
+            if not doc_check:
+                flash("invalid google doc url", "warning")
+            else:
+                flash("invalid youtube url", "warning")
             raise ValueError()
 
     def check_valid_title(title):
@@ -48,7 +52,7 @@ class Post(Blog):
     __tablename__ = "posts"
     title = db.StringField(max_length=200, nullable=False, validation=check_valid_title)
     description = db.StringField(max_length=1000,validation=check_valid_description)
-    video_url = db.StringField(max_length=100, validation=check_valid_video_url)
+    media_url = db.StringField(max_length=300, validation=check_valid_media_url)
     github_url = db.StringField(max_length=200, validation=check_valid_github_url)
     image = db.ImageField(size=(500, 500, False), thumbnail_size=(60, 60, False))
     keyword = db.StringField(max_length=50)
